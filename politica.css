@@ -1,0 +1,190 @@
+.container-md{ 
+  padding-left: 0% !important;
+  padding-right: 0% !important;
+  overflow: hidden;
+ 
+  background-image: url(immagini/carta1.png);
+  
+    background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;  
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    z-index: 4;
+}
+
+
+
+
+
+body{ 
+  font-family: 'Playfair Display', serif !important;
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-position: center;
+    background-image: url('immagini/parlamento/sfondo1.jpg');
+    background-size: 170% ;
+    
+    will-change: transform, filter; /* Ottimizzazione */
+    
+    display: flex;
+    position: sticky;
+    top: 0;
+    
+}
+
+
+
+h4{
+  
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  text-align: justify;
+  
+}
+
+.box{
+  float: left;
+  width: 100%;
+  
+}
+
+.contenitore{
+  display: flex;
+  padding-top: 3%;
+  padding: 5%;
+  padding-left: 3%;
+ 
+}
+
+span{
+  justify-self: center;
+}
+
+.container-fluid{
+  justify-self: center !important;
+}
+
+#navbar{
+  background-image: url(immagini/perpo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-self: center;
+  width: 100%;
+  height: 150px !important;
+  display: flex;
+  align-items: center; /* Centra verticalmente gli elementi */
+  justify-content: space-between; /* Distribuisce lo spazio tra gli elementi */
+   padding: 10px 20px;
+}
+
+.contenitore{
+  display: flex;
+  padding-top: 2% !important;
+  width: 90%;
+}
+
+
+
+a:link{ text-decoration: none; font-weight: bold;  color: #6A0DAD;}
+a:hover{ text-decoration: underline; color: #6A0DAD}
+a:visited{ color: #6A0DAD;}
+
+
+
+@font-face {
+  font-family: 'DidotCustom';
+  src: url('Vogue.ttf') format('ttf')
+}
+
+h1{ 
+  color: white !important;
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px;
+  
+  font-family: "playfair display", serif !important;
+}
+
+p{
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  text-align: justify;
+
+}
+
+.back-button{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #6d4c41; /* Marrone elegante */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-bottom: 4%;
+}
+
+.back-button:hover {
+  background-color: #4e342e; /* Scuro al passaggio mouse */
+  text-decoration: none;
+}
+
+.back-button:link{
+  color: #fff9f8;
+}
+
+.back-button:visited{
+  color: #ffd8d1;
+}
+
+#navbar h1 {
+  flex-grow: 1; /* Permette all'elemento di espandersi */
+  text-align: center; /* Centra il titolo */
+  margin: 0;
+  padding-bottom: 4%;
+}
+
+.embed-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;  /* Centra il contenuto */
+}
+
+.embed-container iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+}
+
+#rid{
+  width: 45%;
+  padding-left: 5%;
+  float: right !important ;
+ 
+}
+
+@media screen and (max-width: 1355px) {
+  .contenitore {
+      flex-direction: column-reverse; /* Sposta rid sotto il testo */
+      align-items: center;
+      padding-left: 10%;
+      padding-right: 10%;
+  }
+
+  #rid {
+      width: 100%;
+      margin-top: 20px; /* Distanza dal testo sopra */
+      padding-bottom: 15px;
+  }
+}
+
+
+
+
+  
+

@@ -1,0 +1,297 @@
+.container-md{ 
+  padding-left: 0% !important;
+  padding-right: 0% !important;
+  overflow: hidden;
+ 
+  background-image: url(immagini/carta1.png);
+  
+    background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;  
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    z-index: 4;
+    justify-self: center !important;
+}
+
+
+
+
+
+body{ 
+  font-family: 'Playfair Display', serif !important;
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-position: center;
+    background-image: url('immagini/parlamento/sfondo1.jpg');
+    
+    
+    will-change: transform, filter; /* Ottimizzazione */
+    
+    display: flex;
+    position: sticky;
+    top: 0;
+    
+}
+
+#carouselExampleCaptions{ 
+  width: 60% !important;  
+  padding: 20px; 
+  
+  justify-self: center;
+  position:relative;
+  right: 0;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+} 
+
+.carousel-control-next, .carousel-control-prev{
+  position:absolute;
+  width: 30% !important;
+  top: -10% !important;
+}
+
+.carousel-caption{
+  position: relative !important; top: 20px; left: 0% !important;
+}
+
+h4{
+  
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  
+  
+}
+
+.box{
+  float: left;
+  width: 100%;
+  padding: 5%;
+  padding-top: 0%;
+  padding-bottom: 3%;
+}
+
+.box1{
+  
+  width: 100%;
+  padding-right: 2%;
+  padding-top: 3%;
+  padding-bottom: 5%;
+}
+
+.contenitore{
+  display: flex;
+  padding-top: 5%;
+  padding-left: 2%;
+}
+
+span{
+  justify-self: center;
+}
+
+.container-fluid{
+  justify-self: center !important;
+}
+
+#navbar{
+  background-image: url(immagini/perpo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-self: center;
+  width: 100%;
+  height: 150px !important;
+  display: flex;
+  align-items: center; /* Centra verticalmente gli elementi */
+  justify-content: space-between; /* Distribuisce lo spazio tra gli elementi */
+   padding: 10px 20px;
+}
+
+.contenitore{
+  padding-top: 2% !important;
+}
+
+
+
+a:link{ text-decoration: none; font-weight: bold;  color: #6A0DAD;}
+a:hover{ text-decoration: underline; color: #6A0DAD}
+a:visited{ color: #6A0DAD;}
+
+.coll{
+  color: rgb(255, 255, 255) !important;
+  position:relative;
+  top: 25%;
+  font-size: large;
+  padding-left: 5%;
+}
+
+@font-face {
+  font-family: 'DidotCustom';
+  src: url('Vogue.ttf') format('ttf')
+}
+
+h1{ 
+  color: white !important;
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px;
+  
+  font-family: "playfair display", serif !important;
+}
+
+p{
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  text-align: justify;
+  justify-self: center !important;
+  width: 100%;
+
+}
+
+.back-button{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #6d4c41; /* Marrone elegante */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-bottom: 4%;
+}
+
+.back-button:hover {
+  background-color: #4e342e; /* Scuro al passaggio mouse */
+  text-decoration: none;
+}
+
+.back-button:link{
+  color: #fff9f8;
+}
+
+.back-button:visited{
+  color: #ffd8d1;
+}
+
+#navbar h1 {
+  flex-grow: 1; /* Permette all'elemento di espandersi */
+  text-align: center; /* Centra il titolo */
+  margin: 0;
+  padding-bottom: 4%;
+}
+
+  
+#rid{
+  width: 70%;
+  justify-self: center;
+  float: right !important ;
+  padding: 3%;
+}
+
+.box2{
+  
+  width: 50%;
+}
+
+.contenitore{
+  display: flex;
+  padding-left: 0%;
+}
+
+h5{
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  color: black !important;
+}
+
+#grafico{
+  padding: 10%;
+  padding-right: 10%;
+  padding-bottom: 10%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  display: flex;
+  padding-top: 0%;
+  padding-left: 5%;
+  
+}
+
+.grafico1{
+  justify-self: center;
+  
+ 
+  padding-right: 6%;
+  border-radius: 10px;
+  padding-top:3%;
+  
+}
+
+#spazio{
+  padding-top: 5%;
+  
+  
+}
+
+img{
+  border-radius: 10px;
+  box-shadow: 5px;;
+}
+
+iframe{
+  border-radius: 10px;
+  width: 90%;
+  height: auto;
+}
+
+
+
+.box1, .box2 {
+  flex: 1;
+  min-width: 300px; /* Evita che le box diventino troppo strette */
+  margin: 10px;
+}
+
+.contenitore {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#grafico {
+  display: flex;
+  
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 1125px) {
+  #grafico{
+    flex-wrap: wrap;
+    flex-direction: column-reverse
+  }
+}
+
+@media (max-width: 1125px) {
+  .dati{
+    width: 314px !important;
+    justify-self: center;
+    scrollbar-width: 2;
+  }
+}
+
+@media (max-width: 1000px) {
+  #carouselExampleCaptions{
+    width: 100% !important;
+    height: auto;
+  }
+}
+
+
+
+  
+

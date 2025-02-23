@@ -1,0 +1,219 @@
+.container-md{ 
+  padding-left: 0% !important;
+  padding-right: 0% !important;
+  overflow: hidden;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(200, 150, 100, 0.9)); /* Da bianco trasparente a beige */
+  border-radius: 0px; /* Angoli arrotondati */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per risalto */
+
+
+ 
+  background-image: url(immagini/carta1.png);
+  
+    background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;  
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    z-index: 4;
+}
+
+
+
+
+
+body{ 
+  font-family: 'Playfair Display', serif !important;
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-position: center;
+    background-image: url('immagini/parlamento/sfondo1.jpg');
+    background-size: 170% ;
+    
+    will-change: transform, filter; /* Ottimizzazione */
+    
+    display: flex;
+    position: sticky;
+    top: 0;
+    
+}
+
+#carouselExampleCaptions{ 
+  width: 90%;
+  max-width: 600px; /* Limita la dimensione massima */
+  margin: auto; /* Centra il carousel */
+  padding: 20px; 
+  
+  justify-self: center;
+  position:relative;
+  right: 0;
+  padding-left: 0px;
+ 
+
+  margin-top: 0px;
+  margin-bottom: 20px;
+} 
+
+.carousel-control-next, .carousel-control-prev{
+  position:absolute;
+  width: 30% !important;
+  top: -10% !important;
+}
+
+.carousel-caption{
+  position: relative !important; top: 20px; left: 0% !important;
+}
+
+h4{
+  
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  text-align: justify;
+  
+}
+
+.box{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.contenitore{
+  display: flex;
+  padding-top: 5%;
+  padding-left: 2%;
+  padding-top: 2% !important;
+}
+
+span{
+  justify-self: center;
+}
+
+.container-fluid{
+  justify-self: center !important;
+}
+
+#navbar{
+  background-image: url(immagini/perpo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-self: center;
+  width: 100%;
+  height: 150px !important;
+  display: flex;
+  align-items: center; /* Centra verticalmente gli elementi */
+  justify-content: space-between; /* Distribuisce lo spazio tra gli elementi */
+   padding: 10px 20px;
+}
+
+
+
+
+
+a:link{ text-decoration: none; font-weight: bold;  color: #6A0DAD;}
+a:hover{ text-decoration: underline; color: #6A0DAD}
+a:visited{ color: #6A0DAD;}
+
+.coll{
+  color: rgb(255, 255, 255) !important;
+  position:relative;
+  top: 25%;
+  font-size: large;
+  padding-left: 5%;
+}
+
+@font-face {
+  font-family: 'DidotCustom';
+  src: url('Vogue.ttf') format('ttf')
+}
+
+h1{ 
+  color: rgb(255, 255, 255) !important;
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px;
+  
+  font-family: "playfair display", serif !important;
+}
+
+p{
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  text-align: justify;
+
+}
+
+.back-button{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #6d4c41; /* Marrone elegante */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-bottom: 4%;
+}
+
+.back-button:hover {
+  background-color: #4e342e; /* Scuro al passaggio mouse */
+  text-decoration: none;
+}
+
+.back-button:link{
+  color: #fff9f8;
+}
+
+.back-button:visited{
+  color: #ffd8d1;
+}
+
+#navbar h1 {
+  flex-grow: 1; /* Permette all'elemento di espandersi */
+  text-align: center; /* Centra il titolo */
+  margin: 0;
+  padding-bottom: 4%;
+}
+
+h5{
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  color: black !important;
+}
+
+p{
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  text-align: justify;
+  justify-self: center !important;
+  width: 100%;
+  color: black;
+
+}
+
+@media (max-width: 768px) {
+  .box, #carouselExampleCaptions {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  #carouselExampleCaptions{
+    padding-left: 5%;
+  }
+}
+
+
+  
+
+ 
+
+
+  
+
