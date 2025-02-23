@@ -183,7 +183,13 @@ p{
   }
 }
 
-
+@media (max-width: 825px) {
+  #aif{
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+}
 
 
   
