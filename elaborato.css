@@ -221,3 +221,9 @@ h5{
     aspect-ratio: 4/3;
   }
 }
+
+@media (max-width: 1350px) {
+  .carousel-indicators{
+    opacity: 0 !important;
+  }
+}
