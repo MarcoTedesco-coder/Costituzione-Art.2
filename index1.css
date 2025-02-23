@@ -17,7 +17,7 @@
   flex-wrap: wrap;
   justify-content: center; /* Centra le card */
   align-items: flex-start; /* Evita sovrapposizioni */
-  gap: 20px; /* Distanza uniforme tra le card */
+  gap: 25px; /* Distanza uniforme tra le card */
   width:95%; /* Evita allargamenti strani */
   padding: 20px;
   overflow: hidden; /* Nasconde eventuali problemi di overflow */
@@ -159,7 +159,7 @@ body{
 
 .card-hover.show {
   opacity: 1;
-  transform: translateY(0);
+  
 }
 
 
@@ -210,10 +210,71 @@ h1, h2, h3, h4, h5, h6 {
 
 .row {
   margin: 0 auto;
+  
 }
 
 .card-hover {
   margin-bottom: 20px; /* Distanza tra le card */
 }
+
+h6{
+ 
+  color: rgba(255, 255, 255, 0.657) !important;
+  padding: 5px;
+  justify-self: center;
+  margin: 0px !important;
   
+}
+  
+.crediti{
+  background-color: #000000a9;
+  border-radius: 15px;
+  position:absolute;
+  right: 15px;
+  bottom: 10px;
+  margin: 0px !important;
+  display: flex;
+  
+}
+
+.crediti-hover {
+  opacity: 0;
+  transform: translateY(0px);
+  transition: opacity 1.0s ease, transform 1.0s ease;
+}
+
+.crediti-hover:hover {
+    transform: scale(1.10);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.crediti-hover.show {
+  opacity: 1;
+  
+}
+
+
+@media (max-width:1560px) {
+  .crediti{
+    opacity: 0 !important;
+  }
+}
+
+.is-hover {
+  opacity: 0;
+  transform: translateY(0px);
+  transition: opacity 1.0s ease, transform 1.0s ease;
+}
+
+.is-hover:hover {
+    transform: scale(1.10);
+    
+}
+
+.is-hover.show {
+  opacity: 1;
+  
+}
+
+
 
