@@ -19,9 +19,20 @@
     <body onbeforeunload="window.scrollTo(0,0)">
       
 
-      <div id="intro"><h1>Questo progetto è stato realizzato dalla <br>4ªA , 5ªA & 5ªB AFM/SIA dell'Istituto Carlo Maria Carafa <p> </p> Con la Supervisione dei Professori <br> Gaetano Ferrarelli (Informatica) e <br> Alfonsina Ginevra (Diritto & Economia Politica)</h1></div>
+      <div id="intro"><h1>Questo progetto è stato realizzato dalla <br>4ªA , 5ªA & 5ªB AFM/SIA dell'Istituto Carlo Maria Carafa <p> </p> Con la Supervisione dei Professori <br> Gaetano Ferrarelli (Informatica) e <br> Alfonsina Ginevra (Diritto & Economia Politica)
+      
+        <div id="countdownDiv">
+          Visibile fra&nbsp;<span id="timer"> 7 </span>&nbsp;secondi.
+        </div>
+
+      </h1>
+        
+        
+
+      </div>
+      
         <div class="container-md"> 
-          <div class="crediti crediti-hover show"><h6> Programmato da: <br>Marco Tedesco (4ªA AFM) </h6></div>
+          <div class="crediti crediti-hover show"><h6> Programmato da: <br>Marco Tedesco (4ªA AFM) <br>& Prof. Gaetano Ferrarelli</h6></div>
 
 
            
@@ -31,12 +42,15 @@
     </span>
   </div>
 
-              
+  
               
               <div class="video-player">
+
                 <!-- Video -->
-                <video  id="video"  src="immagini/Ultime notizie rosse.mp4">
-                  <source src="immagini/Ultime notizie rosse.mp4" type="video/mp4">
+                 <div id="loadingSpinner" class="spinner"></div>
+
+                <video  id="video"  src="immagini/Ultime notizie rosse.mp4"  >
+                  
                 </video>
               
                 <!-- Controls -->
@@ -46,6 +60,7 @@
                   <!-- Progress Bar -->
                   <div class="progress-bar" id="progressBar">
                     <div class="progress" id="progress"></div>
+                    <div class="progress-thumb" id="progressThumb"></div>
                   </div>
                   <!-- Current Time / Duration -->
                   <span class="time" id="timeDisplay">0:00 / 0:00</span>
@@ -148,84 +163,75 @@
             intro.classList.add("hidden");
             document.body.classList.remove("no-scroll"); // Riabilita lo scroll
             console.log("Intro nascosto.");
-        }, 15000);
+        }, 7000);
     } else {
         console.error("Elemento #intro non trovato!");
     }
 });
       </script>
       
-      <script>document.addEventListener("DOMContentLoaded", () => {
-        const video = document.getElementById("video");
-        const playPauseBtn = document.getElementById("playPauseBtn");
-        const progressBar = document.getElementById("progressBar");
-        const progress = document.getElementById("progress");
-        const timeDisplay = document.getElementById("timeDisplay");
-        const volumeBtn = document.getElementById("volumeBtn");
-        const fullscreenBtn = document.getElementById("fullscreenBtn");
-        const controls = document.querySelector(".controls"); // Seleziona i controlli
-    
-        // Play/Pause con animazione pulsante
-        playPauseBtn.addEventListener("click", () => {
-            if (video.paused) {
-                video.play();
-                playPauseBtn.innerHTML = "⏸";
-            } else {
-                video.pause();
-                playPauseBtn.innerHTML = "▶";
-            }
+      <script>// Seleziona elementi
+        const video = document.getElementById('video');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progress = document.getElementById('progress');
+        const timeDisplay = document.getElementById('timeDisplay');
+        const volumeBtn = document.getElementById('volumeBtn');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+      
+        // Play/Pause
+        playPauseBtn.addEventListener('click', () => {
+          if (video.paused) {
+            video.play();
+            playPauseBtn.textContent = '⏸'; // Cambia il pulsante in pausa
+          } else {
+            video.pause();
+            playPauseBtn.textContent = '▶'; // Cambia il pulsante in play
+          }
         });
-    
-        // Aggiorna la barra di avanzamento e il tempo
-        video.addEventListener("timeupdate", () => {
-            const progressPercent = (video.currentTime / video.duration) * 100;
-            progress.style.width = `${progressPercent}%`;
-            timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+      
+        // Aggiorna barra di avanzamento
+        video.addEventListener('timeupdate', () => {
+          const progressPercent = (video.currentTime / video.duration) * 100;
+          progress.style.width = `${progressPercent}%`;
+      
+          // Aggiorna il tempo corrente e la durata
+          const currentTime = formatTime(video.currentTime);
+          const duration = formatTime(video.duration);
+          timeDisplay.textContent = `${currentTime} / ${duration}`;
         });
-    
-        // Clic sulla barra per avanzare il video
-        progressBar.addEventListener("click", (e) => {
-            const newTime = (e.offsetX / progressBar.offsetWidth) * video.duration;
-            video.currentTime = newTime;
+      
+        // Vai a un punto cliccando sulla barra di avanzamento
+        progressBar.addEventListener('click', (e) => {
+          const barWidth = progressBar.offsetWidth;
+          const clickX = e.offsetX;
+          const newTime = (clickX / barWidth) * video.duration;
+          video.currentTime = newTime;
         });
-    
-        // Volume toggle con animazione
-        volumeBtn.addEventListener("click", () => {
-            video.muted = !video.muted;
-            volumeBtn.innerHTML = video.muted ? "🔇" : "🔊";
+      
+        // Volume toggle
+        volumeBtn.addEventListener('click', () => {
+          video.muted = !video.muted;
+          volumeBtn.textContent = video.muted ? '🔇' : '🔊';
         });
-    
-        // Fullscreen toggle con compatibilità browser
-        fullscreenBtn.addEventListener("click", () => {
-            if (!document.fullscreenElement) {
-                if (video.requestFullscreen) video.requestFullscreen();
-                else if (video.mozRequestFullScreen) video.mozRequestFullScreen();
-                else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
-                else if (video.msRequestFullscreen) video.msRequestFullscreen();
-            } else {
-                document.exitFullscreen();
-            }
+      
+        // Fullscreen toggle
+        fullscreenBtn.addEventListener('click', () => {
+          if (document.fullscreenElement) {
+            document.exitFullscreen();
+          } else {
+            video.parentElement.requestFullscreen();
+          }
         });
-    
-        // ⛶ **Mantieni i controlli visibili in fullscreen**
-        document.addEventListener("fullscreenchange", () => {
-            if (document.fullscreenElement) {
-                controls.style.position = "absolute"; // Mantiene i controlli sopra il video
-                controls.style.bottom = "10px";
-                controls.style.width = "100%";
-                controls.style.opacity = "1"; // Rende i controlli sempre visibili
-            } else {
-                controls.style.position = "relative";
-            }
-        });
-    
-        // Formattazione tempo (mm:ss)
-        function formatTime(time) {
-            const minutes = Math.floor(time / 60);
-            const seconds = Math.floor(time % 60);
-            return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-        }
-    });</script>
+      
+        // Funzione per formattare il tempo in minuti e secondi
+        function formatTime(seconds) {
+          const minutes = Math.floor(seconds / 60);
+          const secs = Math.floor(seconds % 60);
+          return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }</script>
+
+
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -257,6 +263,137 @@
     }, 10); // Ritardo di 10ms per sovrascrivere lo scroll automatico del browser
   };
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const videoPlayer = document.querySelector(".video-player");
+      const controls = document.querySelector(".controls");
+      let hideControlsTimeout;
+
+      function showControls() {
+          controls.style.opacity = "1";
+          controls.style.visibility = "visible";
+          clearTimeout(hideControlsTimeout); // Reset timer
+      }
+
+      function hideControls() {
+          hideControlsTimeout = setTimeout(() => {
+              controls.style.opacity = "0";
+              setTimeout(() => {
+                  controls.style.visibility = "hidden"; // Nasconde dopo l'animazione
+              }, 500); // Aspetta la transizione (0.5s)
+          }, 3000); // Dopo 3 secondi di inattività
+      }
+
+      videoPlayer.addEventListener("mouseenter", showControls);
+      videoPlayer.addEventListener("mousemove", showControls);
+      videoPlayer.addEventListener("mouseleave", hideControls);
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const video = document.getElementById("video");
+      const progressBar = document.getElementById("progressBar");
+      const progress = document.getElementById("progress");
+      const progressThumb = document.getElementById("progressThumb");
+  
+      let isDragging = false;
+  
+      // **Funzione per aggiornare la barra e la pallina**
+      function updateProgress() {
+          const progressPercent = (video.currentTime / video.duration) * 100;
+          progress.style.width = `${progressPercent}%`;
+          progressThumb.style.left = `${progressPercent}%`;
+      }
+  
+      // **Funzione per aggiornare il tempo del video manualmente**
+      function setVideoProgress(event) {
+          const rect = progressBar.getBoundingClientRect();
+          let offsetX = event.clientX - rect.left;
+          offsetX = Math.max(0, Math.min(offsetX, rect.width)); // Limiti tra 0 e max
+          const newTime = (offsetX / rect.width) * video.duration;
+          video.currentTime = newTime;
+          updateProgress();
+      }
+  
+      // **Clic sulla barra per cambiare il tempo**
+      progressBar.addEventListener("click", setVideoProgress);
+  
+      // **Drag Start: inizia trascinamento**
+      progressThumb.addEventListener("mousedown", (event) => {
+          isDragging = true;
+          document.body.style.userSelect = "none"; // Evita selezione testo
+      });
+  
+      // **Drag Move: muovere la pallina mentre si trascina**
+      document.addEventListener("mousemove", (event) => {
+          if (isDragging) {
+              setVideoProgress(event);
+          }
+      });
+  
+      // **Drag End: rilascia il trascinamento**
+      document.addEventListener("mouseup", () => {
+          isDragging = false;
+          document.body.style.userSelect = "auto"; // Ripristina selezione testo
+      });
+  
+      // **Aggiornare la barra in tempo reale mentre il video avanza**
+      video.addEventListener("timeupdate", updateProgress);
+  });
+
+  </script>
+
+<script>
+  let seconds = 7; // Tempo in secondi prima della scomparsa
+  let timerSpan = document.getElementById("timer");
+  let countdownDiv = document.getElementById("countdownDiv");
+
+  let countdown = setInterval(function() {
+      seconds--; 
+      timerSpan.textContent = seconds; 
+
+      if (seconds <= 0) {
+          clearInterval(countdown); 
+          countdownDiv.style.display = "none"; 
+      }
+  }, 1000);
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const video = document.getElementById("video");
+      const loadingSpinner = document.getElementById("loadingSpinner");
+  
+      // Nasconde lo spinner se il video è già caricato
+      if (video.readyState >= 3) { // READY_STATE 3 significa che il video può essere riprodotto
+          loadingSpinner.style.display = "none";
+      }
+  
+      // Mostra lo spinner quando il video sta caricando
+      video.addEventListener("waiting", function () {
+          loadingSpinner.style.display = "block";
+      });
+  
+      // Nasconde lo spinner quando il video è pronto a partire
+      video.addEventListener("canplay", function () {
+          loadingSpinner.style.display = "none";
+      });
+  
+      // Nasconde lo spinner quando il video parte
+      video.addEventListener("play", function () {
+          loadingSpinner.style.display = "none";
+      });
+  
+      // Se il video è già pronto all'inizio, nasconde lo spinner
+      video.addEventListener("loadeddata", function () {
+          loadingSpinner.style.display = "none";
+      });
+  });
+  </script>
+
+
 
 
 
